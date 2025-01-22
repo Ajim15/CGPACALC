@@ -1,0 +1,17 @@
+def calculate_cgpa(grades, credits):
+    if len(grades) != len(credits):
+        raise ValueError("Grades and credits lists must have the same length.")
+
+    total_points = sum(g * c for g, c in zip(grades, credits))
+    total_credits = sum(credits)
+
+    if total_credits == 0:
+        return 0
+
+    cgpa = total_points / total_credits
+    return round(cgpa, 2)
+
+# Example usage:
+grades = [9.0, 8.5, 10.0, 7.5]  # Grade points for each subject
+credits = [3, 4, 3, 2]          # Corresponding credit hours
+print(f"Your CGPA is: {calculate_cgpa(grades, credits)}")
